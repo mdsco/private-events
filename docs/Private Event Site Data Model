@@ -1,0 +1,36 @@
+Private Event Site Data Model
+
+class User < ApplicationRecord
+  # ASSOCIATIONS
+  # 1. A user can create events
+  # 2. A user can attend many events
+
+  has_many :events
+  has_many :attendances, dependent: :destroy
+  has_many :attended_events, through: :attendances, source: :event
+
+  # FIELDS
+  # name
+  # email
+end
+
+
+class Event < ApplicationRecord
+  # ASSOCIATIONS:
+  # 1. An event is created by a user
+  # 1. Events can be attended by many users 
+  
+  belongs_to :user
+  has_many :attendances, dependent: :destroy
+  has_many :attendees, through: :attendances, source: :user
+
+  # FIELDS:
+  # title
+  # date
+  # location
+end
+
+class Attendance < ApplicationRecord
+  belongs_to :user
+  belongs_to :event
+end
