@@ -1,15 +1,26 @@
 <h1>Create Event</h1>
-<%= form_with do |form| %>
+<%= form_with model: @event, url: events_url do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
 
-  <%= form.label :title %>
-  <%= form.text_field :title %>
+  <div>
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
 
-  <%= form.label :location %>
-  <%= form.text_field :location %>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
 
-  <%= form.label :description %>
-  <%= form.text_area :description %>
+  <div>
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
 
-  
-
+  <div>
+    <%= form.submit %>
+  </div>
 <% end %>

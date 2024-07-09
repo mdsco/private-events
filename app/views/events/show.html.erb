@@ -1,0 +1,13 @@
+<div>
+  <h1>Event</h1>
+
+  <p>Title: <%= @event.title %></p>
+
+  <p>Description: <%= @event.description %></p>
+
+  <p>Location: <%= @event.location %></p>
+
+  <p>Event date: <%= @event.date %>
+
+  <p>Event creator: <%= link_to @event.creator.email, user_url(@event.creator) %>
+</div>
